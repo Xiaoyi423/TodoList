@@ -32,20 +32,20 @@
               </form>
 
               <ul class="list-group mb-0">
-                <%for( i=0 ; i < newListItems.length ;i++){%>
+                <% newListItems.forEach(function(item){%>
                   <li
                     class="list-group-item d-flex justify-content-between align-items-center border-start-0 border-top-0 border-end-0 border-bottom rounded-0 mb-2">
                     <div class="d-flex align-items-center">
                       <input class="form-check-input me-2" type="checkbox" value="" aria-label="..." />
                       <span>
-                        <%=newListItems[i]%>
+                        <%=item.name%>
                       </span>
                     </div>
                     <a href="#!" data-mdb-toggle="tooltip" title="Remove item">
                       <i class="fas fa-times text-primary"></i>
                     </a>
                   </li>
-                  <%}%>
+                  <%})%>
               </ul>
 
             </div>
@@ -53,6 +53,7 @@
 
         </div>
       </div>
+      <p class="text-center">© 2022 Xiaoyi Li</p>
     </div>
   </section>
 </body>
