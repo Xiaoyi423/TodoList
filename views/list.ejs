@@ -21,22 +21,23 @@
           <div class="card" style="border-radius: 15px;">
             <div class="card-body p-5">
 
-              <h6 class="mb-3">Today is <%=kindOfDay %></h6>
+              <h6 class="mb-3"><%=listTitle %></h6>
 
               <form class="d-flex justify-content-center align-items-center mb-4" action="/" method="post">
                 <div class="form-outline flex-fill">
                   <input type="text" id="form3" class="form-control form-control-lg" name="newItem"
                     placeholder="What do you need to do today?">
                 </div>
-                <button type="submit" class="btn btn-primary btn-lg ms-2">Add</button>
+                <button type="submit" class="btn btn-primary btn-lg ms-2" name="list" value="<%= listTitle %>">Add</button>
               </form>
 
               <ul class="list-group mb-0">
+                <form action="/delete" method="post">
                 <% newListItems.forEach(function(item){%>
                   <li
                     class="list-group-item d-flex justify-content-between align-items-center border-start-0 border-top-0 border-end-0 border-bottom rounded-0 mb-2">
                     <div class="d-flex align-items-center">
-                      <input class="form-check-input me-2" type="checkbox" value="" aria-label="..." />
+                      <input class="form-check-input me-2" type="checkbox" name="checkbox" value="<%=item._id%>" aria-label="..." onChange="this.form.submit()"/>
                       <span>
                         <%=item.name%>
                       </span>
@@ -46,6 +47,8 @@
                     </a>
                   </li>
                   <%})%>
+                  <input type="hidden" name="listName" value="<%=listTitle%>">
+                </form>
               </ul>
 
             </div>
