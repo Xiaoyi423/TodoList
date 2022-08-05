@@ -31,6 +31,8 @@ const listSchema={
   items:[itemSchema]
 };
 
+const day = "Today";
+
 const List = mongoose.model("List",listSchema)
 
 app.get("/", function (req, res) {
@@ -49,7 +51,7 @@ app.get("/", function (req, res) {
       })
       res.redirect("/")
     }else{
-      res.render("list", {listTitle: "Today", newListItems: results});
+      res.render("list", {listTitle: day, newListItems: results});
     }
   })
 });
