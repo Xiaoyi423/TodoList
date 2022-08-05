@@ -33,16 +33,6 @@ const listSchema={
 
 const List = mongoose.model("List",listSchema)
 
-let today = new Date();
-
-let options = {
-  weekday: 'long',
-  day: 'numeric',
-  month: 'long'
-};
-
-let day = today.toLocaleDateString("en-US", options)
-
 app.get("/", function (req, res) {
 
  
@@ -59,7 +49,7 @@ app.get("/", function (req, res) {
       })
       res.redirect("/")
     }else{
-      res.render("list", {listTitle: day, newListItems: results});
+      res.render("list", {listTitle: "Today", newListItems: results});
     }
   })
 });
